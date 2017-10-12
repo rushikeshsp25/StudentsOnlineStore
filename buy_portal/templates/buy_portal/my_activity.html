@@ -1,0 +1,113 @@
+{% extends 'buy_portal/base.html' %}
+{% block title %}My Activity{% endblock %}
+
+
+{% block body %}
+<div class="container">
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#sells" role="tab">Sells</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#purchase" role="tab">Purchase</a>
+      </li>
+    </ul>
+  </div>
+
+
+    <div class="tab-content">
+  <div class="tab-pane active" id="sells" role="tabpanel">
+    {% if my_sells %}
+      <div class="card-block">
+      <div class="container">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Item Image</th>
+      <th>Item Name</th>
+      <th>Selling Price</th>
+        <th>Date Uploaded</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in my_sells%}
+    <tr>
+
+      <td>
+          {% if item.image %}
+          <img class="card-img-bottom" src="{{ item.image.url }}" alt="Card image cap">
+          {% else %}
+            <h3>No image to display</h3>
+          {% endif %}
+      </td>
+      <td>{{item.item_name}}</td>
+      <td>{{item.selling_price}}</td>
+        <td>{{item.datetime}}</td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  </div>
+      </div>
+      {% else %}
+      <h5>Nothing Sold Yet !</h5>
+      {% endif %}
+
+  </div>
+
+  <div class="tab-pane" id="purchase" role="tabpanel">
+
+      {% if my_purchase %}
+      <div class="card-block">
+      <div class="container">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Item Image</th>
+      <th>Item Name</th>
+      <th>Buying Price</th>
+        <th>Date Purchased</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in my_purchase%}
+    <tr>
+
+      <td>
+          {% if item.image %}
+          <img class="card-img-bottom" src="{{ item.image.url }}" alt="Card image cap">
+          {% else %}
+            <h3>No image to display</h3>
+          {% endif %}
+      </td>
+      <td>{{item.item_name}}</td>
+      <td>{{item.selling_price}}</td>
+        <td>{{item.datetime}}</td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  </div>
+      </div>
+      {% else %}
+      <h5>Nothing Purchased Yet !</h5>
+      {% endif %}
+  </div>
+
+</div>
+
+</div>
+</div>
+<!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+{% endblock %}

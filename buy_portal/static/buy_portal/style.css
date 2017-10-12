@@ -1,0 +1,19 @@
+body {
+    background: white url("images/background.png");
+}
+
+#id_description{
+width:300px;
+height:200px;
+}
+
+.carousel-inner img {       /*Carouse image center*/
+  margin: auto;
+  height:300px;
+}
+
+/* size of card
+.item-card > div > div.card {
+    height: 200px;
+}
+*/
